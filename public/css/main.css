@@ -1,0 +1,14 @@
+.polly-parrot {
+  width: 50px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.polly-parrot2 {
+  width: 50px;
+  margin-top: -10px;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}

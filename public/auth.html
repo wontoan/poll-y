@@ -6,7 +6,52 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!--Navbar-header-->
+        <div class="navbar-header">
+          <a href="#"><img src="/public/img/polly-parrot.png" class="navbar-left polly-parrot flip"></a>
+          <a class="navbar-brand" href="#">Poll-y</a>
+        </div>
+        <!--Navbar Log In Form-->
+        <form class="navbar-form navbar-right">
+          <input type="text" class="form-control" placeholder="E-mail">
+          <input type="text" class="form-control" placeholder="Password">
+          <button type="submit" class="btn btn-primary login-btn">Log In</button>
+        </form>
+      </div>
+    </nav>
     
+    <div class="container">
+      <div class="row">
+        <!--Poll-y Copy-->
+        <div class="col-md-6">
+          <h3>Stuck? Put it to a vote with Poll-y!</h3>
+          <p><strong>Get fast answers </strong> to questions like: Where should we eat? What should we do this weekend? Which outfit looks better?</p>
+          <p><strong>Easily share polls</strong> with friends, family, and colleagues!</p>
+          <p><strong>Insert</strong> benefit #3</p>
+        </div>
+        <!--Sign-up form-->
+        <div class="col-md-6">
+          <h3>Sign Up</h3>
+          <p>It's free and always will be.</p>
+          <form ng-submit="register();">
+<!--              <p>{{error}}</p>-->
+            <div class="form-group">
+              <input class="form-control" type="fName" placeholder="First Name">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="lName" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="email" placeholder="Email">
+            </div>
+            <button type="submit" class="btn btn-lg btn-success signup-btn">Sign Up</button>
+          </form>
+        </div>
+      
+      </div>
+    </div>
     
     
     
