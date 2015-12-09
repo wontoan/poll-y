@@ -12,3 +12,7 @@
 .flip {
   transform: rotateY(180deg);
 }
+
+.success {
+  text-align: center;
+}
