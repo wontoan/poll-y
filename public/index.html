@@ -16,26 +16,27 @@
         </div>
         <!--Navbar Log In Form-->
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">My Profile</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li><a href="./allpolls.html">My Polls</a></li>
+          <li><a href="./profile.html">Edit Profile</a></li>
+          <li><a href="./auth.html">Log Out</a></li>
         </ul>
       </div>
     </nav>
     
-    <div class="container">
+    <div class="container" ng-app="pollyApp">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" ng-controller="pollController">
           <h3>1. Ask a question</h3>
           <form ng-submit="newPoll();">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="What should I get mom for her birthday?" ng-model="poll.title">
+              <input type="text" class="form-control" placeholder="What should I get mom for her birthday?" ng-model="newPoll.title">
             </div>
             <div class="form-group">
               <h3>2. Add some items</h3>
-              <input type="text" class="form-control" ng-model="poll.option1" placeholder="Option 1">
+              <input type="text" class="form-control" ng-model="newPoll.option1" placeholder="Option 1">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Option 2" ng-model="poll.option2">
+              <input type="text" class="form-control" placeholder="Option 2" ng-model="newPoll.option2">
             </div>
             <button class="btn btn-primary">Add another item...</button>
             <button class="btn btn-success" type="submit">Submit</button>

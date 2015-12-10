@@ -38,13 +38,20 @@
           <form ng-submit="register();">
 <!--              <p>{{error}}</p>-->
             <div class="form-group">
-              <input class="form-control" type="fName" placeholder="First Name">
+              <label>First Name</label>
+              <input ng-model="newUser.fName" class="form-control" type="fName">
             </div>
             <div class="form-group">
-              <input class="form-control" type="lName" placeholder="Last Name">
+              <label>Last Name</label>
+              <input ng-model="newUser.lName" class="form-control" type="lName">
             </div>
             <div class="form-group">
-              <input class="form-control" type="email" placeholder="Email">
+              <label>Email</label>
+              <input ng-model="newUser.email" class="form-control" type="email">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input ng-model="newUser.password" class="form-control" type="email">
             </div>
             <button type="submit" class="btn btn-lg btn-success signup-btn">Sign Up</button>
           </form>
