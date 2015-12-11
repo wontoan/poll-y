@@ -8,6 +8,10 @@ var app = express();
 
 mongoose.connect('mongodb://localhost/pollyApp');
 
+app.get('/', function(req, res){
+  res.send('Welcome to pollyApp API');
+});
+
 app.listen(port, function(){
   console.log("Listening on port " + port);
 });
