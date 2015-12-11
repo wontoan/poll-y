@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+//Define our database via mongoose schemas
 var userSchema = mongoose.Schema({
   fName: String,
   lName: String,
