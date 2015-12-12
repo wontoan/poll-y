@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 //Define our database via mongoose schemas
 var userSchema = mongoose.Schema({
@@ -13,3 +14,6 @@ var pollSchema = mongoose.Schema({
   title: String,
   options: [{count: Number}]
 });
+
+mongoose.model('User', userSchema);
+mongoose.model('Poll', pollSchema);
