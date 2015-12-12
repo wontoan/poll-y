@@ -1,11 +1,16 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var pollRouter = express.Router();
+var Poll = mongoose.model('Poll');
 
-pollRouter.route('/polls')
+pollRouter.route('/Polls')
   .get(function (req, res) {
-    var responseJson = {hello: "This is my api"};
-    res.json(responseJson);
-  })  
-  .post();
+    Poll.find(function (err, polls) {
+      if (err) {
+        res.status(500).send(err);
+      }
+      res.json(polls);
+    });
+  });
 
 module.exports = pollRouter;
