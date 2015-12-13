@@ -17,6 +17,7 @@
     "mongoose": "^4.3.0",
     "passport": "^0.3.2",
     "passport-google-oauth": "^0.2.0",
+    "passport-twitter": "^1.0.3",
     "session": "^0.1.0"
   },
   "devDependencies": {},

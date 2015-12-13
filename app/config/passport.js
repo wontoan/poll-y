@@ -7,4 +7,5 @@ module.exports = function (passport) {
     done(null, user);
   });
   require('./strategies/google.strategy')(passport);
+  require('./strategies/twitter.strategy')(passport);
 };

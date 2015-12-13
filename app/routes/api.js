@@ -3,6 +3,13 @@ var mongoose = require('mongoose');
 var router = express.Router();
 var Poll = mongoose.model('Poll');
 
+router.use('/', function(req, res, next){
+  if (!req.user) {
+    res.redirect('/');
+  }
+  next();
+});
+
 router.route('/Polls')
   .get(function (req, res) {
     Poll.find(function (err, polls) {
