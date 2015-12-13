@@ -1,9 +1,9 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var pollRouter = express.Router();
+var router = express.Router();
 var Poll = mongoose.model('Poll');
 
-pollRouter.route('/Polls')
+router.route('/Polls')
   .get(function (req, res) {
     Poll.find(function (err, polls) {
       if (err) {
@@ -13,4 +13,4 @@ pollRouter.route('/Polls')
     });
   });
 
-module.exports = pollRouter;
+module.exports = router;
