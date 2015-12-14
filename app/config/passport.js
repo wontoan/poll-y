@@ -8,4 +8,5 @@ module.exports = function (passport) {
   });
   require('./strategies/google.strategy')(passport);
   require('./strategies/twitter.strategy')(passport);
+  require('./strategies/facebook.strategy')(passport);
 };
