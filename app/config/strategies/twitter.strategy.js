@@ -18,13 +18,14 @@ module.exports = function (passport) {
           console.log('user found');
         } else {
           var user = new User();
-          user.image = profile._json.image.url;
+          user.image = profile.photos[0].value;
           user.displayName = profile.displayName;
 
           user.twitter = {};
           user.twitter.id = profile.id;
           user.twitter.token = token;
-
+          
+          user.save();
           done(null, user);
         }
       });

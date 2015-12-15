@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
 module.exports = function (passport) {
-  
   passport.use(new GoogleStrategy({
     clientID: '747343027572-lpfeo5hhq3tetfl7vp98qa3a6b19mugr.apps.googleusercontent.com',
     clientSecret: 'gH4DrQj2EuwoymLfwDuzIuMk',

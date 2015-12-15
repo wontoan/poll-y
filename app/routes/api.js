@@ -3,12 +3,12 @@ var mongoose = require('mongoose');
 var router = express.Router();
 var Poll = mongoose.model('Poll');
 
-router.use('/', function(req, res, next){
-  if (!req.user) {
-    res.redirect('/');
-  }
-  next();
-});
+//function isAuthenticated (req, res, next) {
+//  if (req.user) {
+//    return next();
+//  }
+//  return res.redirect('/login');
+//}
 
 router.route('/Polls')
   .get(function (req, res) {

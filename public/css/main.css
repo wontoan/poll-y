@@ -22,6 +22,10 @@
   margin: 30px;
 }
 
+.splash-copy {
+  padding-top: 20px;
+}
+
 .social-logins > li > a:hover {
   text-decoration: none;
   color: white;

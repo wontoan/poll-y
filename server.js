@@ -16,9 +16,6 @@ var routes = require('./app/routes/index.js');
 var api = require('./app/routes/api');
 var auth = require('./app/routes/auth')(passport);
 
-app.use('/', routes);
-app.use('/api', api);
-
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -31,6 +28,9 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/', routes);
+app.use('/api', api);
 app.use('/auth', auth);
 
 require('./app/config/passport')(passport);
