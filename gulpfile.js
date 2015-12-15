@@ -5,9 +5,9 @@ gulp.task('default', function () {
   nodemon({
     script: 'server.js',
     ext: 'js',
-    env: {
-      PORT: 8000
-    },
+//    env: {
+//      PORT: 8000
+//    },
     ignore: ['./node_modules/**']
   })
     .on('restart', function () {
