@@ -1,54 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Poll-y</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <!--Navbar-header-->
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/public/auth.html">
-            <img alt="Polly-parrot" src="/img/polly-parrot.png" class="navbar-left polly-parrot2 flip">
-          </a>
-        </div>
-        <!--Navbar Log In Form-->
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="./allpolls.html">My Polls</a></li>
-          <li><a href="./profile.html">Edit Profile</a></li>
-          <li><a href="/logout">Log Out</a></li>
-        </ul>
-      </div>
-    </nav>
-    
-    <div class="container" ng-app="pollyApp">
-      <div class="row">
-        <div class="col-md-6" ng-controller="pollController">
-          <h3>1. Ask a question</h3>
-          <form ng-submit="newPoll();">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="What should I get mom for her birthday?" ng-model="newPoll.title">
-            </div>
-            <div class="form-group">
-              <h3>2. Add some items</h3>
-              <input type="text" class="form-control" ng-model="newPoll.option1" placeholder="Option 1">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Option 2" ng-model="newPoll.option2">
-            </div>
-            <button class="btn btn-primary">Add another item...</button>
-            <button class="btn btn-success" type="submit">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
   
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
-    <script src="https://cdnjs.com/libraries/chart.js"></script>
-    <script src="js/pollyApp.js"></script>
-  </body>
+<head>
+  <title>Poll-y</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+  
+<body ng-app="pollyApp">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!--Navbar-header-->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/">
+          <img alt="Polly-parrot" src="/img/polly-parrot.png" class="navbar-left polly-parrot2 flip">
+        </a>
+      </div>
+      <!--Navbar Log In Form-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/allpolls">My Polls</a></li>
+        <li><a href="#/profile">Edit Profile</a></li>
+        <li><a href="#/">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div ng-view></div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
+  <script src="https://cdnjs.com/libraries/chart.js"></script>
+  <script src="js/pollyApp.js"></script>
+</body>
+  
 </html>

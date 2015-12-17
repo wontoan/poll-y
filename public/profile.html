@@ -1,50 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Poll-y</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body ng-app="pollyApp">
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <!--Navbar-header-->
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/public/auth.html">
-            <img alt="Polly-parrot" src="/public/img/polly-parrot.png" class="navbar-left polly-parrot2 flip">
-          </a>
-        </div>
-        <!--Navbar Log In Form-->
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="./allpolls.html">My Polls</a></li>
-          <li><a href="./profile.html">Edit Profile</a></li>
-          <li><a href="./auth.html">Log Out</a></li>
-        </ul>
-      </div>
-    </nav>
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12" ng-controller="pollController">
-          <h2>Change Password</h2>
-          <form>
-            <div class="form-group">
-              <label for="password">Enter New Password</label>
-              <input class="form-control" type="password" id="password">
-            </div>
-            <div class="form-group">
-              <label for="confirmPassword">Confirm New Password</label>
-              <input class="form-control" type="password" id="confirmPassword">
-            </div>
-            <button type="submit" class="btn btn-success">Save changes</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
-    <script src="js/pollyApp.js"></script>
-  </body>
-</html>
+<div class="row">
+  <div class="col-md-12">
+    {{1+1}}
+    <h3>{{user.displayName}}'s Profile</h3>
+    <img ng-src="{{user.image}}">
+  </div>
+</div>

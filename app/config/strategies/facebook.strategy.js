@@ -16,6 +16,9 @@ module.exports = function (passport) {
       };
     
       User.findOne(query, function(error, user){
+        if (error) {
+          return done(err);
+        }
         if (user) {
           console.log("user found");
           done(null, user);

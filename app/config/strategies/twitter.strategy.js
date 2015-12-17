@@ -13,7 +13,10 @@ module.exports = function (passport) {
       var query = {
         'twitter.id': profile.id
       };
-      User.findOne(query, function(error, user){
+      User.findOne(query, function(error, user) {
+        if (error) {
+          return done(error);
+        }
         if (user) {
           console.log('user found');
         } else {

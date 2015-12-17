@@ -1,6 +1,34 @@
 (function () {
   'use strict';
-  var app = angular.module("pollyApp", []);
+  var app = angular.module('pollyApp', ['ngRoute']);
+  
+  app.config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'newpoll.html',
+        controller: 'pollController'
+      })
+    
+      .when('/login', {
+        templateUrl: 'auth.html',
+        controller: 'authController'
+      })
+    
+      .when('/success', {
+        templateUrl: 'success.html',
+        controller: 'pollController'
+    })
+    
+      .when('/profile', {
+        templateUrl: 'profile.html',
+        controller: 'authController'
+      })
+    
+      .when('/allpolls', {
+        templateUrl: 'allpolls.html',
+        controller: 'pollController'
+      });
+  });
   
   app.controller('pollController', function ($scope) {
     //Temp in-memory storage until backend is built
@@ -12,12 +40,7 @@
     };
   });
   
-  app.controller('authController', function($scope){
-    $scope.users = [];
-    $scope.newUser = {};
-    $scope.register = function(){
-      
-    };
+  app.controller('authController', function ($scope) {
+    $scope.message = "ahaha";
   });
-
 }());
