@@ -18,15 +18,16 @@ module.exports = function (passport) {
           return done(error);
         }
         if (user) {
-          console.log('found user');
+          console.log('Google Strategy: found user');
           done(null, user);
         } else {
-          console.log('user not found, creating user');
+          console.log('Google Strategy: user not found, creating user');
           var user = new User();
           
           user.email = profile.emails[0].value;
           user.image = profile._json.image.url;
           user.displayName = profile.displayName;
+          
           user.google = {};
           user.google.id = profile.id;
           user.google.token = accessToken;

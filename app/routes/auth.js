@@ -1,3 +1,5 @@
+//Auth.js is for handling all authentication-related routing.
+//In this case, logging in with passport and logging out
 var express = require('express');
 var router = express.Router();
 
@@ -30,6 +32,11 @@ module.exports = function (passport) {
     successRedirect: '/',
     failureRedirect: '/error/'
   }));
+  
+  router.get('/logout', function (req, res) {
+    req.logout(); // Passport's function for ending a login session
+    res.redirect('/#/login');
+  });
   
   return router;
 };

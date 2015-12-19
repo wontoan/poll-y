@@ -1,4 +1,5 @@
 var express = require('express');
+var routes = require('./app/routes/index.js');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -10,11 +11,10 @@ var port = process.env.PORT || 3000;
 require('./app/models/models');
 mongoose.connect('mongodb://localhost/pollyApp');
 
-var app = express();
-
-var routes = require('./app/routes/index.js');
-var api = require('./app/routes/api');
 var auth = require('./app/routes/auth')(passport);
+var api = require('./app/routes/api')(passport);
+
+var app = express();
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -30,11 +30,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', routes);
-app.use('/api', api);
 app.use('/auth', auth);
+app.use('/api', api);
 
 require('./app/config/passport')(passport);
 
-app.listen(port, function(){
+app.listen(port, function () {
   console.log("Listening on port " + port);
-}); 
+});

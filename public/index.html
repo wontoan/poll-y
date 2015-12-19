@@ -4,11 +4,12 @@
 <head>
   <title>Poll-y</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
   
 <body ng-app="pollyApp">
-  <nav class="navbar navbar-default">
+  
+  <nav class="navbar navbar-default" ng-show="authenticated">
     <div class="container">
       <!--Navbar-header-->
       <div class="navbar-header">
@@ -18,9 +19,9 @@
       </div>
       <!--Navbar Log In Form-->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#/allpolls">My Polls</a></li>
-        <li><a href="#/profile">Edit Profile</a></li>
-        <li><a href="#/">Log Out</a></li>
+        <li><a class="btn btn-success" href="#/new" ng-show="authenticated">New Poll</a></li>
+        <li><a href="#/profile">{{displayName}}'s Profile</a></li>
+        <li><a href="#/login" ng-click="logout();">Log Out</a></li>
       </ul>
     </div>
   </nav>
@@ -32,7 +33,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
-  <script src="https://cdnjs.com/libraries/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
   <script src="js/pollyApp.js"></script>
 </body>
   

@@ -19,6 +19,7 @@ module.exports = function (passport) {
         }
         if (user) {
           console.log('user found');
+          done(null, user);
         } else {
           var user = new User();
           user.image = profile.photos[0].value;
