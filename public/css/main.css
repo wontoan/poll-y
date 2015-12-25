@@ -26,6 +26,13 @@
   padding-top: 20px;
 }
 
+.recentPolls {
+  list-style: none;
+  box-shadow: 0.5px 0.5px 5px black;
+  margin: 5px 0;
+  padding: 10px;
+}
+
 .social-logins > li > a:hover {
   text-decoration: none;
   color: white;

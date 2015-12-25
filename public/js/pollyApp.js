@@ -10,6 +10,14 @@
       $rootScope.authenticated = false;
       $rootScope.currentUser = '';
     };
+
+    $http.get('/api/user').success(function (data) {
+      var user = data;
+      $rootScope.currentUser = user.displayName;
+      if ($rootScope.currentUser) {
+        $rootScope.authenticated = true;
+      }
+    });
   });
 
   app.config(function ($routeProvider) {
@@ -19,57 +27,16 @@
         controller: 'mainController'
       })
 
-      .when('/login', {
-        templateUrl: 'auth.html'
-      })
-
       .when('/new', {
         templateUrl: 'newpoll.html',
         controller: 'pollController'
       })
 
-      .when('/success', {
-        templateUrl: 'success.html',
-        controller: 'mainController'
+      .when('/user', {
+        templateUrl: 'user.html',
+        controller: 'userController'
       })
-
-      .when('/view', {
-        templateUrl: 'viewpoll.html',
-        controller: 'pollController'
-      })
-
-      .when('/profile', {
-        templateUrl: 'profile.html',
-        controller: 'mainController'
-      });
+      .otherwise({redirectTo:'/'});
   });
 
-  app.controller('pollController', function ($scope, $http, $rootScope) {
-
-    $scope.polls = [
-      {
-        labels: ['Apple', 'Orange'],
-        data: [[10, 5]]
-      }
-    ];
-
-    $scope.newPoll = {};
-
-    $scope.createPoll = function () {
-      $scope.newPoll.data = [[20, 10]];
-      $scope.polls.push($scope.newPoll);
-      console.log($scope.newPoll);
-      $scope.newPoll = {};
-    };
-  });
-
-  app.controller('mainController', function ($scope, $http, $rootScope) {
-    $http.get('/api/user').success(function (data) {
-      console.log(data);
-      var user = data;
-      $rootScope.authenticated = true;
-      $rootScope.displayName = user.displayName;
-      $scope.image = user.image;
-    });
-  });
 }());

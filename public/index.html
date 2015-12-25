@@ -22,8 +22,8 @@
       <!--Navbar Log In Form-->
       <ul class="nav navbar-nav navbar-right">
         <li><a class="btn btn-success" href="#/new" ng-show="authenticated">New Poll</a></li>
-        <li><a href="#/profile">{{displayName}}'s Profile</a></li>
-        <li><a href="#/login" ng-click="logout();">Log Out</a></li>
+        <li><a href="#/user">My Profile</a></li>
+        <li><a href="#/" ng-click="logout();">Log Out</a></li>
       </ul>
     </div>
   </nav>
@@ -39,6 +39,9 @@
 "></script>
   <script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
   <script src="js/pollyApp.js"></script>
+  <script src="js/mainController.js"></script>
+  <script src="js/pollController.js"></script>
+  <script src="js/userController.js"></script>
 </body>
   
 </html>

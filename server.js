@@ -1,5 +1,4 @@
 var express = require('express');
-var routes = require('./app/routes/index.js');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -11,6 +10,7 @@ var port = process.env.PORT || 3000;
 require('./app/models/models');
 mongoose.connect('mongodb://localhost/pollyApp');
 
+var routes = require('./app/routes/index.js');
 var auth = require('./app/routes/auth')(passport);
 var api = require('./app/routes/api')(passport);
 
@@ -29,9 +29,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', routes);
 app.use('/auth', auth);
 app.use('/api', api);
+app.use('/', routes);
 
 require('./app/config/passport')(passport);
 

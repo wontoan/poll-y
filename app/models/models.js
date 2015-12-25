@@ -28,7 +28,8 @@ var pollSchema = mongoose.Schema({
   //Define our Poll Schema using the datasets required by Chart.js
   title: String,
   labels: [],
-  data: []
+  data: [],
+  createdBy: String
 });
 
 mongoose.model('User', userSchema);
