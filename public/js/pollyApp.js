@@ -1,67 +1,47 @@
 (function () {
   'use strict';
-  var app = angular.module('pollyApp', ['ngRoute', 'ngResource']).run(function ($rootScope, $http) {
-    
+  var app = angular.module('pollyApp', ['ngRoute', 'chart.js']).run(function ($rootScope, $http) {
+
     $rootScope.authenticated = false;
-    $rootScope.currentUser = "";
-    
+    $rootScope.currentUser = '';
+
     $rootScope.logout = function () {
       $http.get('/auth/logout');
       $rootScope.authenticated = false;
-      $rootScope.currentUser = "";
+      $rootScope.currentUser = '';
     };
+
+    $http.get('/api/user').success(function (data) {
+      $rootScope.currentUser = data.displayName;
+      $rootScope.userImage = data.image;
+      if ($rootScope.currentUser) {
+        $rootScope.authenticated = true;
+      }
+    });
   });
-  
+
   app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'main.html',
         controller: 'mainController'
       })
-    
-      .when('/login', {
-        templateUrl: 'auth.html'
-      })
-    
+
       .when('/new', {
         templateUrl: 'newpoll.html',
         controller: 'pollController'
       })
     
-      .when('/success', {
-        templateUrl: 'success.html',
-        controller: 'mainController'
+      .when('/user/:username', {
+        templateUrl: 'user.html',
+        controller: 'userController'
       })
-      
-      .when('/view', {
-        templateUrl: 'viewpoll.html',
+    
+      .when('/:username/:id', {
+        templateUrl: 'vote.html',
         controller: 'pollController'
       })
-    
-      .when('/profile', {
-        templateUrl: 'profile.html',
-        controller: 'mainController'
-      });
+      .otherwise({redirectTo:'/'});
   });
-  
-  app.controller('pollController', function ($scope, $http, $rootScope) {
-    //Temp in-memory storage until backend is built
-    $scope.polls = [{title: "What should I get mom for her birthday?", option1: "DEF", option2: "GHI"}, {title: "What should I eat tonight?", option1: "DEF", option2: "GHI"}];
-    $scope.newPoll = {};
-    
-    $scope.newPoll = function () {
-      $scope.polls.push($scope.newPoll);
-      $scope.newPoll = {};
-    };
-  });
-  
-  app.controller('mainController', function ($scope, $http, $rootScope) {
-    $http.get('/api/me').success(function (data) {
-        console.log(data);
-        var user = data;
-        $rootScope.authenticated = true;
-        $rootScope.displayName = user.displayName;
-        $scope.image = user.image;
-      });
-  });
+
 }());

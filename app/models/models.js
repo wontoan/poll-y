@@ -26,17 +26,10 @@ var userSchema = mongoose.Schema({
 //Mongoose Poll Model
 var pollSchema = mongoose.Schema({
   //Define our Poll Schema using the datasets required by Chart.js
+  title: String,
   labels: [],
-  datasets: [
-    {
-      label: String,
-      fillColor: String,
-      strokeColor: String,
-      highlightFill: String,
-      highlightStroke: String,
-      data: []
-    }
-  ]
+  data: [],
+  createdBy: String
 });
 
 mongoose.model('User', userSchema);
