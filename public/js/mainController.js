@@ -5,9 +5,9 @@
 
     //Get all polls
     $http.get('/api/polls').success(function (data) {
-      console.log(data);
+      //console.log(data);
       $scope.polls = data;
-    });    
+    });
+    
   });
 }());
-

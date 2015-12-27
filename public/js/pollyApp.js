@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var app = angular.module('pollyApp', ['ngRoute', 'ngResource', 'chart.js']).run(function ($rootScope, $http) {
+  var app = angular.module('pollyApp', ['ngRoute', 'chart.js']).run(function ($rootScope, $http) {
 
     $rootScope.authenticated = false;
     $rootScope.currentUser = '';
@@ -12,8 +12,8 @@
     };
 
     $http.get('/api/user').success(function (data) {
-      var user = data;
-      $rootScope.currentUser = user.displayName;
+      $rootScope.currentUser = data.displayName;
+      $rootScope.userImage = data.image;
       if ($rootScope.currentUser) {
         $rootScope.authenticated = true;
       }
@@ -31,10 +31,15 @@
         templateUrl: 'newpoll.html',
         controller: 'pollController'
       })
-
-      .when('/user', {
+    
+      .when('/user/:username', {
         templateUrl: 'user.html',
         controller: 'userController'
+      })
+    
+      .when('/:username/:id', {
+        templateUrl: 'vote.html',
+        controller: 'pollController'
       })
       .otherwise({redirectTo:'/'});
   });

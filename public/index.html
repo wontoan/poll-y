@@ -21,8 +21,8 @@
       </div>
       <!--Navbar Log In Form-->
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="btn btn-success" href="#/new" ng-show="authenticated">New Poll</a></li>
-        <li><a href="#/user">My Profile</a></li>
+        <li><a href="#/new" ng-show="authenticated">New Poll</a></li>
+        <li><a href="#/user/{{currentUser}}">My Profile</a></li>
         <li><a href="#/" ng-click="logout();">Log Out</a></li>
       </ul>
     </div>

@@ -1,12 +1,17 @@
+<!--User Info-->
 <div class="row">
   <div class="col-md-6">
     <h3>{{currentUser}}</h3>
-    <img ng-src="{{image}}">
+    <img class="profileImage" ng-src="{{userImage}}">
   </div>
 </div>
 
+<!--User Polls-->
 <div class="row">
   <div class="col-md-12">
     <h3>My Polls</h3>
+    <ul class="listPolls">
+      <li class="recentPolls" ng-repeat="poll in userPolls"><a ng-href="#/{{poll.createdBy}}/{{poll._id}}">{{poll.title}}</a></li>
+    </ul>
   </div>
 </div>

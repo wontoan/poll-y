@@ -13,10 +13,6 @@
   transform: rotateY(180deg);
 }
 
-.success {
-  text-align: center;
-}
-
 .social-logins > li {
   list-style: none;
   margin: 30px;
@@ -24,6 +20,11 @@
 
 .splash-copy {
   padding-top: 20px;
+}
+
+.listPolls {
+  padding: 0;
+  list-style: none;
 }
 
 .recentPolls {

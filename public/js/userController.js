@@ -1,11 +1,16 @@
 (function () {
   var app = angular.module('pollyApp');
 
-  app.controller('userController', function ($scope, $http, $rootScope) {
-
-    $http.get('/api/user').success(function (data) {
-      var user = data;
-      $scope.image = user.image;
+  app.controller('userController', function ($scope, $http, $routeParams, $rootScope) {
+    
+    $http.get('/api/polls').success(function (data) {
+      $scope.userPolls = [];
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].createdBy === $rootScope.currentUser) {
+          $scope.userPolls.push(data[i]);
+        }
+      }
     });
+    
   });
 }());

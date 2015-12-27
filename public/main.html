@@ -1,48 +1,35 @@
 <!--Heading-->
 <div ng-hide="authenticated">
-<div class="row">
-  <div class="col-md-12 text-center">
-    <h1>Poll-y</h1>
-    <h3>Want an answer?</h3>
-  </div>
-</div>
-
-<hr>
-
-<div class="row">
-  <!--Poll-y Copy-->
-  <div class="col-md-6 splash-copy">
-    <ul>
-      <li><strong>Quickly decide</strong> where to eat, what to do this weekend, and whether that dress makes you look fat (of course it doesn't, silly)</li>
-      <li><strong>Answers</strong> from people you trust - you control who can see and vote on your polls</li>
-      <li><strong>Discover</strong> the hottest tv shows, songs, and more!</li>
-    </ul>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>Poll-y</h1>
+      <h3>Wants An Answer</h3>
+    </div>
   </div>
 
-  <!--Logins-->
-  <div class="col-md-6">
-    <ul class="social-logins">
-      <li><a href="/auth/google" class="googleplus"><i class="fa fa-google-plus-square"></i> Continue With Google</a></li>
-      <li><a href="/auth/twitter" class="twitter"><i class="fa fa-twitter-square" ></i> Continue With Twitter</a></li>
-      <li><a href="/auth/facebook" class="facebook"><i class="fa fa-facebook-square" ></i> Continue With Facebook</a></li>
-      <li><a href="">Or signup with your email</a></li>
-    </ul>
-  </div>
-</div>
+  <hr>
 
-<hr>
+  <div class="row">
+    <!--Poll-y Copy-->
+    <div class="col-md-6 splash-copy">
+      <ul>
+        <li><strong>Quickly decide</strong> where to eat, what to do this weekend, and whether that dress makes you look fat (of course it doesn't, silly)</li>
+        <li><strong>Answers</strong> from people you trust - you control who can see and vote on your polls</li>
+        <li><strong>Discover</strong> the hottest tv shows, songs, and more!</li>
+      </ul>
+    </div>
 
-<!--App Info/Preview Copy-->
-<div class="row">
-  <div class="col-md-12">
-    <h3>What would you like Polly to do for you today?</h3>
-    <ul>
-      <li>Save time</li>
-      <li>Get more done</li>
-      <li>Eliminate stress</li>
-    </ul>
+    <!--Logins-->
+    <div class="col-md-6">
+      <ul class="social-logins">
+        <li><a href="/auth/google" class="googleplus"><i class="fa fa-google-plus-square"></i> Continue With Google</a></li>
+        <li><a href="/auth/twitter" class="twitter"><i class="fa fa-twitter-square" ></i> Continue With Twitter</a></li>
+        <li><a href="/auth/facebook" class="facebook"><i class="fa fa-facebook-square" ></i> Continue With Facebook</a></li>
+<!--        <li><a href="">Or signup with your email</a></li>-->
+      </ul>
+    </div>
   </div>
-</div>
+  
 </div>
 
 <!--List all polls-->
@@ -50,7 +37,7 @@
   <div class="col-md-12">
     <h2 class="text-center">Latest Polls</h2>
     <ul>
-      <li class="recentPolls" ng-repeat="poll in polls"><a ng-href="#/{{poll.createdBy}}/{{poll.title}}">{{poll.title}}</a></li>
+      <li class="recentPolls" ng-repeat="poll in polls" ng-click="pollDetails();"><a ng-href="#/{{poll.createdBy}}/{{poll._id}}">{{poll.title}}</a></li>
     </ul>
   </div>
 </div>

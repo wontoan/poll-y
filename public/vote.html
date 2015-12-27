@@ -1,0 +1,19 @@
+<!--Poll Voting-->
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2>{{votingPoll.title}}</h2>
+    <p>by {{votingPoll.createdBy}}</p>
+    <div class="radio" ng-repeat="label in votingPoll.labels track by $index">
+      <label><input type="radio" name="label">{{label}}</label>
+    </div>
+    <button class="btn btn-success" ng-click="submitVote();">Vote!</button>
+  </div>
+</div>
+
+<!--Poll Results Graph-->
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3>{{votingPoll.title}}</h3>
+    <canvas id="bar" class="chart chart-bar" chart-data="votingPoll.data" chart-labels="votingPoll.labels"></canvas> 
+  </div>
+</div>

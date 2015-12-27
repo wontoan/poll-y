@@ -50,8 +50,18 @@ module.exports = function (passport) {
     })
 
     .put(function(req, res) {
-      Poll.findById(req.params.id, function(err, post) {
-
+      Poll.findById(req.params.id, function(err, poll) {
+        if (err) {
+          res.send(err);
+        }
+        poll.created_by = req.body.created_by;
+        poll.data = req.body.data;
+        poll.save(function (err, poll) {
+          if (err) {
+            res.send(err);
+          }
+          res.json(poll);
+        });
       });
     })
 
@@ -65,6 +75,17 @@ module.exports = function (passport) {
         return res.json('This poll was deleted!');
       });
     });
+  
+//    router.route('/polls/:id/')
+//      .get(function (req, res) {
+//        console.log(req.params);
+//        Poll.find({createdBy: req.params.username}, function (err, polls) {
+//          if (err) {
+//            return res.send(err)
+//          }
+//          return res.json(polls);
+//        });
+//    });
 
   return router;
 };
